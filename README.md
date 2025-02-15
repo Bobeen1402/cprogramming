@@ -2,6 +2,7 @@
 
 C언어 프로그래밍 
 
+<hr/>
 
 #include <stdio.h>
 
@@ -31,7 +32,7 @@ int main()
 //6) {}(블록)은 코드의 작성 범위(scope)를 표현하는 기호입니다.
 #pragma endregion
 
-
+<hr/>
 
 
 #서식 지정자
