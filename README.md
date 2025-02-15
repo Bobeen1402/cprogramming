@@ -20,12 +20,6 @@ int main()
 }
 ```
 
-int main()
-{
-   printf("Good day to Study!");
-   return 0;
-}
-
 
 <hr/>
 
