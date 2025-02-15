@@ -19,12 +19,7 @@ int main()
    return 0;
 }
 ```
-# printf
-> stdio.h에서 제공해주는 C언어의 대표적인 문장 출력용 기능(함수)입니다.<br>
-> 일반적으로는 printf("작성하고 싶은 문장");을 작성해 사용합니다.
 
-예시)
-```c
 int main()
 {
    printf("Good day to Study!");
