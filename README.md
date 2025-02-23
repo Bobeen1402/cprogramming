@@ -14,7 +14,7 @@ C언어 프로그래밍
   * [3-2. 자료형(Type)](#3-2-자료형Type)
   * [3-3. 대표적인 자료형](#3-3-대표적인-자료형)
 - [4. 입력](#4-입력)
-  * [4-1. #define_CRT_SECURE_NO_WARNINGS](#4-1-define-CRT_SECURE_NO_WARNINGS)
+  * [4-1. #define CRT_SECURE_NO_WARNINGS](#4-1-define-CRT_SECURE_NO_WARNINGS)
   * [4-2. #include <stdio.h>](#4-2-include-stdioh)
 - [5. 연산자](#5-연산자)
 - [6. if문](#6-if문)
