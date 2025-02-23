@@ -229,7 +229,7 @@ int main()
 }
 ```
 # 5. 연산자
-<hr/>
+
 ```c
 
 #define _CRT_SECURE_NO_WARNINGS
