@@ -174,8 +174,52 @@ int main()
 	}
 	left++;
 
+//상급 문제 풀이 2
+	int aData[3][3];
+	int a = 0;
+	int b = 0;
+	int Count = 0;
+	int MaxCount = 0;
+	int Data = 0;
+	int Add = 0;
+	int Flag = 0;
 
+	Data = 1; //수의 표현
+	Count = 3; //3*3이므로 3으로 정의하고 시작
+	MaxCount = (Count * 2) - 1; //Count는 i가 홀수냐 짝수냐에 따라 줄고 j는 그를 넘을 수 없음
+	Add = 1; //행과 열의 증감
+	a = -1; //열
+	for (int i = 0; i < MaxCount; i++)
+	{
+		Count -= i % 2;
+		for (int j = 0; j < Count; j++)
+		{
+			if (Flag == 0)
+			{
+				a += Add; //열의 증가
+			}
+			else
+			{
+				b += Add; //행의 증감
+			}
+			aData[b][a] = Data++;
+		}
+		Flag++;
 
+		if (Flag == 2)
+		{
+			Flag = 0;
+			Add *= -1;
+		}
+	}
 
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			printf("%d ", aData[i][j]);
+		}
+		printf("\n");
+	}
 	return 0;
 }
