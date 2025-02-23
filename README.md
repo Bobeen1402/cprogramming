@@ -15,7 +15,7 @@ C언어 프로그래밍
   * [대표적인 자료형](#대표적인-자료형)
 - [4. 입력](#4-입력)
   * [#define_CRT_SECURE_NO_WARNINGS](#defineCRTSECURENOWARNINGS)
-  * [#include <stdio.h>](include-stdioh)
+  * [#include <stdio.h>](#include-stdioh)
 
 # 1. 코드 기본 구성
 + 전처리기
