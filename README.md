@@ -4,18 +4,18 @@ C언어 프로그래밍
 
 
 # 목차
-- [1. 코드 기본 구성](#1.-코드-기본-구성)
-- [2. 서식](#2-.서식)
+- [1. 코드 기본 구성](#1-코드-기본-구성)
+- [2. 서식](#2-서식)
   * [서식 지정자](#서식-지정자)
   * [이스케이프 시퀀스](#이스케이프-시퀀스)
-  * [데이터 표현법(리터럴(literal))](#데이터-표현법(리터럴(literal)))
+  * [데이터 표현법(리터럴(literal))](#데이터-표현법리터럴literal)
 - [3. 변수](#3.-변수)
-  * [변수(variable)](#변수(variable))
-  * [자료형(Type)](#자료형(Type))
+  * [변수(variable)](#변수variable)
+  * [자료형(Type)](#자료형Type)
   * [대표적인 자료형](#대표적인-자료형)
-- [4. 입력](#4.-입력)
-  * [#define_CRT_SECURE_NO_WARNINGS](##define_CRT_SECURE_NO_WARNINGS)
-  * [#include <stdio.h>](#include-<stdio.h>)
+- [4. 입력](#4-입력)
+  * [#define_CRT_SECURE_NO_WARNINGS](#defineCRTSECURENOWARNINGS)
+  * [#include <stdio.h>](include-stdioh)
 
 # 1. 코드 기본 구성
 + 전처리기
