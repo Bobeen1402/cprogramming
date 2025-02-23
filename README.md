@@ -171,7 +171,7 @@ int main()
 
 <hr/>
 
-## 4-1. #define CRT_SECURE_NO_WARNING
+## 4-1. #define CRT_SECURE_NO_WARNINGS
 + 프로그램에서의 안전 검사를 하지 않도록 설정하는 코드
 + 이 코드를 추가할 경우 visual studio 내에서 scanf를 사용할 수 있습니다.
 
