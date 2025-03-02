@@ -1,86 +1,84 @@
-#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS //strcpy ì˜¤ë¥˜ ê°ì§€
 #include <stdio.h>
-#include <string.h>//¹®ÀÚ¿­ °ü·Ã ÀÛ¾÷ ÇÔ¼ö ±â´É
-
-
+#include <string.h>//ë¬¸ìžì—´ ê´€ë ¨ ìž‘ì—… í•¨ìˆ˜ ê¸°ëŠ¥
 
 int main()
 {
-	//1. ¹®ÀÚ¿­ ÀÛ¼º ¹æ¹ý
-	//char ¹®ÀÚ¿­¸í[] = "¹®Àå";
-	char name[] = "ÀÚ¹Ù";
-	//name = "ÆÄÀÌ½ã"; //¹è¿­Àº ¼öÁ¤ ºÒ°¡
-
-	//2. char* ÇüÅÂ
-	char* job = "Aplication developer";
-	job = "Programmer"; //°¡¸®Å°´Â °ªÀÌ º¯°æµÈ °ÍÀÌ¹Ç·Î, °¡´É
-
+	//1.ë¬¸ìžì—´ ìž‘ì„± ë°©ë²•
+	//char ë¬¸ìžì—´ëª…[] = "ë¬¸ìž¥";
+	char name[] = "ìžë°”";
+	//name = "íŒŒì´ì¬"; //ë°°ì—´ì€ ìˆ˜ì • ë¶ˆê°€	
+	//2. char* í˜•íƒœ
+	char* job = "Application developer";
+	job = "Programmer"; //ê°€ë¦¬í‚¤ëŠ” ê°’ì´ ë³€ê²½ëœ ê²ƒì´ë¯€ë¡œ, ê°€ëŠ¥
 	printf("%s %s", name, job);
+	//2. ë¬¸ìžì—´ ë°°ì—´
+	//char ë°°ì—´ëª…[][ì—´ì˜ ê¸¸ì´] = {"ë¬¸ìžì—´1", "ë¬¸ìžì—´2", .... };
+	char inventory[][20] = {"ë°”ë‚˜ë‚˜","ë”¸ê¸°","ì‚¬ê³¼","í¬ë„"};
 
-	//2. ¹®ÀÚ¿­ ¹è¿­
-	//char ¹è¿­¸í[][¿­ÀÇ ±æÀÌ] = {"¹®ÀÚ¿­1","¹®ÀÚ¿­2", ....};
-	char inventory[][20] = { "¹Ù³ª³ª", "µþ±â", "»ç°ú", "Æ÷µµ" };
+	//3. char* í˜•íƒœ
+	char* shop[] = {"ë”¸ê¸°ë°”ë‚˜ë‚˜","ë”¸ê¸°ì‚¬ê³¼"};
 
-	//3. char* ÇüÅÂ
-	char* shop[] = { "µþ±â¹Ù³ª³ª", "µþ±â»ç°ú" };
-
-	//ÇÔ¼ö 1. strlen()
+	//í•¨ìˆ˜ 1. strlen()
 	char array1[] = "C Programming";
-	char array2[] = "¾¾ ÇÁ·Î±×·¡¹Ö";
+	char array2[] = "ì”¨ í”„ë¡œê·¸ëž˜ë°";
 
-	printf("array1ÀÇ ¹®ÀÚ¿­ÀÇ ±æÀÌ = %lu\n", strlen(array1));
-	//%: ¼­½Ä ÁöÁ¤ÀÚ
-	//l: long(Á¤¼ö)
-	//u: unsigned(ºÎÈ£°¡ µû·Î ¾ø½À´Ï´Ù.(¼ýÀÚ°¡ À½¼ö°¡ ¾Æ´ÔÀ» Ç¥Çö)
-	printf("array2ÀÇ ¹®ÀÚ¿­ÀÇ ±æÀÌ = %lu\n", strlen(array2));
-	printf("array2ÀÇ ¹®ÀÚ¿­ÀÇ ±æÀÌ = %lu\n", sizeof(array2));
+	printf("array1ì˜ ë¬¸ìžì—´ì˜ ê¸¸ì´ = %lu\n", strlen(array1));
+	printf("array1ì˜ ë¬¸ìžì—´ì˜ ê¸¸ì´ = %lu (sizeof)\n", sizeof(array1));
+	//% : ì„œì‹ ì§€ì •ìž
+	//l : long(ì •ìˆ˜)
+	//u : unsigned(ë¶€í˜¸ê°€ ë”°ë¡œ ì—†ìŠµë‹ˆë‹¤.(ìˆ«ìžê°€ ìŒìˆ˜ê°€ ì•„ë‹˜ì„ í‘œí˜„)
+	printf("array2ì˜ ë¬¸ìžì—´ì˜ ê¸¸ì´ = %lu\n", strlen(array2));
+	printf("array2ì˜ ë¬¸ìžì—´ì˜ ê¸¸ì´ = %lu (sizeof)\n", sizeof(array2));
+	
+	//sizeofë³´ë‹¤ ë” ì •í™•í•˜ê²Œ ì‚¬ìš©ê°€ëŠ¥í•œ ê¸¸ì´ë¥¼ ì•Œ ìˆ˜ ìžˆìŒ.
 
-	//sizeofº¸´Ù ´õ Á¤È®ÇÏ°Ô »ç¿ë°¡´ÉÇÑ ±æÀÌ¸¦ ¾Ë ¼ö ÀÖÀ½.
 
-	//ÇÔ¼ö 2. strcpy()
-	//strcpy(¹Ù²Ü ¹®Àå, ¹Ù²Ù·Á´Â ¹®Àå)À» ÅëÇØ, ¹®ÀÚ¿­ÀÇ °ªÀ» º¯°æÇÏ°Å³ª, º¹»çÇÏ´Âµ¥ »ç¿ëÇÕ´Ï´Ù.
-	//ÀÏ¹ÝÀûÀ¸·Î´Â ¹®ÀÚ¿­À» º¯°æÇÒ ¼ö ¾ø±â ¶§¹®
+	//í•¨ìˆ˜ 2. strcpy()
+	//strcpy(ë°”ê¿€ ë¬¸ìž¥, ë°”ê¾¸ë ¤ëŠ” ë¬¸ìž¥)ì„ í†µí•´, ë¬¸ìžì—´ì˜ ê°’ì„ ë³€ê²½í•˜ê±°ë‚˜, ë³µì‚¬í•˜ëŠ”ë° ì‚¬ìš©í•©ë‹ˆë‹¤.
+	//ì¼ë°˜ì ìœ¼ë¡œëŠ” ë¬¸ìžì—´ì„ ë³€ê²½í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸
 
-	char sample[] = "apple\n";
+	char sample[] = "apple";
 	char sample2[20];
 
 	strcpy(sample2, sample);
 	printf("%s", sample2);
 
-	//ÇÔ¼ö 3. strncpy()
-	//strncp(¹Ù²Ü ¹®Àå, ¹Ù²Ù·Á´Â ¹®Àå, °³¼ö);¸¦ ÅëÇØ ¹®ÀÚ¿­À» ¹Ù²Ù·Á´Â ¹®Àå Áß ÀÏºÎÀÇ °ª¸¸ °¡Á®¿À´Â°Ô °¡´ÉÇÕ´Ï´Ù.
+	//í•¨ìˆ˜ 3. strncpy()
+	//strncpy(ë°”ê¿€ ë¬¸ìž¥, ë°”ê¾¸ë ¤ëŠ” ë¬¸ìž¥, ê°œìˆ˜);ë¥¼ í†µí•´ ë¬¸ìžì—´ì„ ë°”ê¾¸ë ¤ëŠ” ë¬¸ìž¥ ì¤‘ ì¼ë¶€ì˜ ê°’ë§Œ ê°€ì ¸ì˜¤ëŠ”ê²Œ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 	char sample3[] = "Hello Everyone";
 	char sample4[20];
-	strncpy(sample4, sample3, 5);//ºñ¾îÀÖ´Â °ª¿¡´Ù º¹»çÇØÁÙ °æ¿ì ÀÌ»óÇÑ °ªÀÌ µé¾î°¡°Ô µÊ.
-	sample4[5] = '\0'; //¸¶Áö¸· ºÎºÐÀ» \0À¸·Î Ã³¸®ÇÕ´Ï´Ù.
-	printf("%s\n", sample4);
+	strncpy(sample4, sample3, 5); //ë¹„ì–´ìžˆëŠ” ê°’ì—ë‹¤ ë³µì‚¬í•´ì¤„ ê²½ìš° ì´ìƒí•œ ê°’ì´ ë“¤ì–´ê°€ê²Œ ë¨.
+	sample4[5] = '\0'; //ë§ˆì§€ë§‰ ë¶€ë¶„ì„ \0ìœ¼ë¡œ ì²˜ë¦¬í•©ë‹ˆë‹¤.
+	printf("%s", sample4);
 
-	//ÇÔ¼ö 4. strcat()
-	//strcat(¹®ÀÚ¿­1, ¹®ÀÚ¿­2)¸¦ ÅëÇØ ¹®ÀÚ¿­ 1¿¡ ¹®ÀÚ¿­ 2¸¦ ÇÕÄ¥ ¼ö ÀÖ½À´Ï´Ù.
-	char sample5[20] = "C¾ð¾î";
-	char sample6[] = "ÇÁ·Î±×·¡¹Ö";
-	strcat(sample5, sample6); //ÇÕÄ¥ °æ¿ì ¹®ÀÚ¿­ 1ÂÊÀÌ ±æÀÌ°¡ ´õ Ä¿¾ß ¿À·ù°¡ ¾øÀ½
-	printf("%s\n", sample5);
+	//í•¨ìˆ˜ 4. strcat()
+	//strcat(ë¬¸ìžì—´1, ë¬¸ìžì—´2)ë¥¼ í†µí•´ ë¬¸ìžì—´ 1ì— ë¬¸ìžì—´ 2ë¥¼ í•©ì¹  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	char sample5[20] = "Cì–¸ì–´";
+	char sample6[] = "í”„ë¡œê·¸ëž˜ë°";
+	strcat(sample5, sample6);
+	//í•©ì¹  ê²½ìš° ë¬¸ìžì—´1ìª½ì´ ê¸¸ì´ê°€ ë” ì»¤ì•¼ ì˜¤ë¥˜ê°€ ì—†ìŒ.
+	//ë§Œì•½ ì•ž ë‹¨ì–´ê°€ ë” ìž‘ì€ ê²½ìš°ë¼ë©´ ë°°ì—´ì— ê¸¸ì´ë¼ë„ ìž‘ì„±í•´ì„œ ë” í° ì €ìž¥ì†Œìž„ì„ ì•Œë ¤ì•¼ í•¨.
+	printf("%s", sample5);
 
-	//ÇÔ¼ö 5. strcmp()
-	//strcmp(¹®ÀÚ¿­1, ¹®ÀÚ¿­2)
-	//µÎ ¹®ÀÚ¿­À» ºñ±³ÇÕ´Ï´Ù. ºñ±³ °á°ú¿¡ µû¶ó ´ÙÀ½°ú °°Àº °ªÀ» returnÇÕ´Ï´Ù.
-	//0 : µÎ ¹®ÀÚ¿­Àº ¼­·Î °°½À´Ï´Ù.
-	//-1 : ¼­·Î ´Ù¸¨´Ï´Ù.
+	//í•¨ìˆ˜ 5. strcmp()
+	//strcmp(ë¬¸ìžì—´1, ë¬¸ìžì—´2)
+	//ë‘ ë¬¸ìžì—´ì„ ë¹„êµí•©ë‹ˆë‹¤. ë¹„êµ ê²°ê³¼ì— ë”°ë¼ ë‹¤ìŒê³¼ ê°™ì€ ê°’ì„ returní•©ë‹ˆë‹¤.
+	//0 : ë‘ ë¬¸ìžì—´ì€ ì„œë¡œ ê°™ìŠµë‹ˆë‹¤.
+	//-1 : ì„œë¡œ ë‹¤ë¦…ë‹ˆë‹¤.
+	
+	//ìœ„ëŠ” ì¼ë°˜ì ì¸ ê²½ìš°ê³  ì‹¤ì œë¡œëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
+	//ë¬¸ìžì—´1 < ë¬¸ìžì—´2ì¸ ê²½ìš° ìŒìˆ˜
+	//ë¬¸ìžì—´1 > ë¬¸ìžì—´2ì¸ ê²½ìš° ì–‘ìˆ˜
+	//ë¬¸ìžì—´1 == ë¬¸ìžì—´2ì¸ê²½ìš° 0
 
-	//À§´Â ÀÏ¹ÝÀûÀÎ °æ¿ì°í ½ÇÁ¦·Î´Â ´ÙÀ½°ú °°½À´Ï´Ù.
-	//¹®ÀÚ¿­1 < ¹®ÀÚ¿­2ÀÎ °æ¿ì À½¼ö
-	//¹®ÀÚ¿­1 > ¹®ÀÚ¿­2ÀÎ °æ¿ì ¾ç¼ö
-	//¹®ÀÚ¿­1 == ¹®ÀÚ¿­ 2ÀÎ °æ¿ì 0
 
-	//Å©±âÀÇ ±âÁØÀº ASCII(¾Æ½ºÅ° ÄÚµå)¸¦ ±âÁØÀ¸·Î ÆÇ´ÜÇÕ´Ï´Ù.
+	//í¬ê¸°ì˜ ê¸°ì¤€ì€ ASCII(ì•„ìŠ¤í‚¤ ì½”ë“œ)ë¥¼ ê¸°ì¤€ìœ¼ë¡œ íŒë‹¨í•©ë‹ˆë‹¤.
 	//ex) "ApplePIE"
 	//EX) "ApplfPIE"
-	//ÀÌ µÑÀ» strcmp·Î ºñ±³ÇÒ °æ¿ì ³ª¿Ã °ªÀº?
-
-	printf("%d\n", strcmp("ApplePIE", "AppldPIE"));
-
-	//ÀÌ ÇÔ¼öÀÇ ¿ëµµ? strcmp·Î ºñ±³ÇÑ °á°ú °ªÀÌ 0ÀÌ¸é °°´Ù´Â Á¡À» ÀÌ¿ëÇØ¼­ ¹®ÀÚ¿­¿¡ ´ëÇÑ È®ÀÎ ¿ëµµ
+	//ì´ ë‘˜ì„ strcmpë¡œ ë¹„êµí•  ê²½ìš° ë‚˜ì˜¬ ê°’ì€?
+	
+	//ì´ í•¨ìˆ˜ì˜ ìš©ë„? strcmpë¡œ ë¹„êµí•œ ê²°ê³¼ ê°’ì´ 0ì´ë©´ ê°™ë‹¤ëŠ” ì ì„ ì´ìš©í•´ì„œ ë¬¸ìžì—´ì— ëŒ€í•œ í™•ì¸ ìš©ë„
 
 	return 0;
 }
