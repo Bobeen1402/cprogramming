@@ -30,6 +30,7 @@ C언어 프로그래밍
   * [9-2. 가변인자](#9-2-가변인자)
   * [9-3. 함수 예시 문제 1](#9-3-함수-예시-문제-1)
 - [10. 포인터와 함수](#10-포인터와-함수)
+- [11. 함수 포인터를 이용한 콜백 함수](#11-함수-포인터를-이용한-콜백-함수)
 
 # 1. 코드 기본 구성
 + 전처리기
@@ -1637,5 +1638,91 @@ int main()
 	printf("%d - %d %d\n", a, b, ptr(a, b));
 	
 	return 0;
+}
+```
+
+# 11. 함수 포인터를 이용한 콜백 함수
+
+```c
+
+#include <stdio.h>
+
+//콜백 함수(callback)은 다른 코드의 인수로 넘겨주는 실행 가능한 코드를 의미합니다.
+//콜백으로 넘겨받은 코드는 설계에 따라 즉시 실행하거나, 나중에 실행하는 게 가능합니다.
+//특정 이벤트가 발생했을 때, 사용자가 원하는 기능을 수행하도록 하기 위한 용도로 설계합니다.
+
+//콜백 함수를 만드는 방법
+//1. 콜백 함수에 대한 정의
+//typedef는 자료형 대신 지어준 이름으로, 대신 표현할 수 있게 도와주는 기능입니다.
+typedef void (*callback)(void);
+
+//2. 콜백 함수에 대한 설정을 진행할 함수 정의
+void setCallback(callback);
+//3. 콜백 함수에 대한 사용을 진행할 함수 정의
+void useCallback(void);
+//4. 사용자가 쓸 함수에 대한 정의
+void useFunction(void);
+
+//5. 콜백에 대한 전역 변수 선언
+callback user_callback = NULL;
+
+void setCallback(callback fp)
+{
+	user_callback = fp;
+}
+
+void useCallback(void)
+{	
+	//user_callback에 값이 설정되어있다면
+	if (user_callback)
+	{
+		//콜백 함수를 실햅합니다.
+		user_callback();
+	}
+	else
+	{
+		//아닌 경우라면 메시지만 전달합니다.
+		printf("None Callback");
+	}
+}
+
+void useFunction(void)
+{
+	printf("callback function completed");
+}
+
+int main()
+{
+	printf("콜백 함수 설정 전 호출 진행\n");
+	useCallback();
+
+	//콜백 함수 설정(함수 포인터)
+	setcallback(useFunction);
+
+	printf("콜백 함수 설정 전 호출 진행\n");
+	useCallback();
+
+//6. 아래에 함수 구현
+	void setCallback(callback fp)
+	{
+		user_callback = fp;
+	}
+
+	return 0;
+}
+
+void useCallback(void)
+{
+	//user_callback에 값이 설정되어있다면
+	if (user_callback)
+	{
+		//콜백 함수를 실햅합니다.
+		user_callback();
+	}
+	else
+	{
+		//아닌 경우라면 메시지만 전달합니다.
+		printf("None Callback");
+	}
 }
 ```
