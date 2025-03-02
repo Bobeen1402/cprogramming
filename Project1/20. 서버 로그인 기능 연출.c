@@ -1,25 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
 typedef void (*server_connection)(char* id, int pw);
 void connect_SERVER(server_connection callback);
 void setting(server_connection fp);
-void OnLogin(char* id);
+void OnLogin(char* id, int pw);
 void on_server_connected();
 void on_server_disconnected();
-void Login()
+void Login();
 
-int uid[] = "abc1234"; //È®ÀÎ¿ë ¾ÆÀÌµğ
-int upass = 123456; //È®ÀÎ¿ë ºñ¹Ğ¹øÈ£
-server_connection sc = NULL; //¼­¹ö ¿¬°á »óÅÂ
-
+char uid[] = "abc1234"; //í™•ì¸ìš© ì•„ì´ë””
+int  upass = 123456;    //í™•ì¸ìš© ë¹„ë°€ë²ˆí˜¸
+server_connection sc = NULL; //ì„œë²„ ì—°ê²° ìƒíƒœ
 int main()
 {
 	Login();
 	connect_SERVER(sc);
 	return 0;
 }
-
 void connect_SERVER(server_connection callback)
 {
 	if (callback)
@@ -27,39 +24,35 @@ void connect_SERVER(server_connection callback)
 	else
 		on_server_disconnected();
 }
-
 void on_server_connected()
 {
-	printf("¼­¹ö¿¡ ¿¬°áÀ» ¼º°øÇß½À´Ï´Ù!");
+	printf("ì„œë²„ì— ì—°ê²°ì„ ì„±ê³µí–ˆìŠµë‹ˆë‹¤!");
 }
-
 void on_server_disconnected()
 {
-	printf("¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ Àß¸øµÆ½À´Ï´Ù!");
+	printf("ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì˜ëª»Â‰ç‡Ÿìœ±æ±‚.");
 }
-
 void Login()
 {
-	char name[20];
-	int pw;
-	printf("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÕ´Ï´Ù. ");
-	scanf("%s", &name);
-	printf("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÕ´Ï´Ù. ");
-	scanf("%d", &pw);
+	char name[20]; //í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©í•  ì•„ì´ë”” ì´ë¦„
+	int pw;        //í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©í•  ë¹„ë°€ë²ˆí˜¸
+
+	printf("ì•„ì´ë””ë¥¼ ì…ë ¥í•©ë‹ˆë‹¤. ");
+	scanf("%s", name);
+	printf("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•©ë‹ˆë‹¤. ");
+	scanf("%d", &pw);	
 
 	setting(OnLogin);
-	sc(name, pw);
-
+	sc(name,pw);
 }
-
 void setting(server_connection fp)
 {
 	sc = fp;
 }
-
 void OnLogin(char* id, int pw)
-{	//strcmp(¹®Àå, ¹®Àå) == 0Àº µÎ ¹®ÀåÀÌ °°Àº °ªÀÎÁö È®ÀÎÇÏ´Â 
-	if (strcmp(uid,id)==0 && upass == pw)
+{
+	//strcmp(ë¬¸ì¥,ë¬¸ì¥) == 0ì€ ë‘ ë¬¸ì¥ì´ ê°™ì€ ê°’ì¸ì§€ í™•ì¸í•˜ëŠ” ì½”ë“œ
+	if (strcmp(uid,id) == 0 && upass == pw)
 	{
 		printf("success");
 	}
