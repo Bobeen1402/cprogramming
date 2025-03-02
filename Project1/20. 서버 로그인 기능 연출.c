@@ -30,7 +30,7 @@ void on_server_connected()
 }
 void on_server_disconnected()
 {
-	printf("아이디 또는 비밀번호가 잘못營윱求.");
+	printf("아이디 또는 비밀번호가 잘못됐습니다.");
 }
 void Login()
 {
