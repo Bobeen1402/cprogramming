@@ -1,6 +1,6 @@
-#include <stdio.h> //ÀÔÃâ·Â Á¦°ø
-#include <stdarg.h> //°¡º¯ ÀÎÀÚ Á¦°ø
-#include <math.h> //¼öÇĞ ±â´É Á¦°ø
+#include <stdio.h> //ì…ì¶œë ¥ ì œê³µ
+#include <stdarg.h> //ê°€ë³€ ì¸ì ì œê³µ
+#include <math.h> //ìˆ˜í•™ ê¸°ëŠ¥ ì œê³µ
 
 int Quadformula(a, b, c)
 {
@@ -8,7 +8,7 @@ int Quadformula(a, b, c)
 	float result2;
 	result1 = - b + sqrt(b*b - 4.0 * a * c) / 2.0 * a;
 	result2 = - b - sqrt(b*b - 4.0 * a * c) / 2.0 * a;
-	printf("´äÀº %.2f¿Í %.2f\n", result1, result2);
+	printf("ë‹µì€ %.2fì™€ %.2f\n", result1, result2);
 }
 
 int PrintRank(rank)
@@ -42,16 +42,16 @@ int PrintRank(rank)
 float average(int score, ...)
 {
 	va_list args;
-	//Àü´Ş¹ŞÀº °ªÀ» ¹­À½À¸·Î ÀúÀåÇÕ´Ï´Ù.
+	//ì „ë‹¬ë°›ì€ ê°’ì„ ë¬¶ìŒìœ¼ë¡œ ì €ì¥í•©ë‹ˆë‹¤.
 	va_start(args, score);
-	//¸ñ·ÏÀ¸·ÎºÎÅÍ, score±îÁöÀÇ ÀÛ¾÷À» ¼öÇàÇÕ´Ï´Ù.
+	//ëª©ë¡ìœ¼ë¡œë¶€í„°, scoreê¹Œì§€ì˜ ì‘ì—…ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 
 	float sum = 0;
 	for (int i = 0; i < score; i++)
 	{
 		sum += va_arg(args, int);
 	}
-	va_end(args); //ÀÛ¾÷ ¿Ï·á
+	va_end(args); //ì‘ì—… ì™„ë£Œ
 
 	return (float)sum / score;
 
@@ -78,45 +78,45 @@ int getprime(primetest)
 
 int main()
 {
-	//x©÷ - 2x = 2¸¦ Ç®ÀÌÇÏ½Ã¿À.
-	printf("x©÷ - 2x = 2¸¦ Ç®ÀÌÇÏ½Ã¿À.\n");
+	//xÂ² - 2x = 2ë¥¼ í’€ì´í•˜ì‹œì˜¤.
+	printf("xÂ² - 2x = 2ë¥¼ í’€ì´í•˜ì‹œì˜¤.\n");
 	Quadformula(1, -2, -2);
-	//ÈùÆ® : 2Â÷ ¹æÁ¤½ÄÀ» Ç®±â À§ÇØ¼± ±ÙÀÇ °ø½ÄÀ» ÀÌ¿ëÇØº¾´Ï´Ù.
+	//íŒíŠ¸ : 2ì°¨ ë°©ì •ì‹ì„ í’€ê¸° ìœ„í•´ì„  ê·¼ì˜ ê³µì‹ì„ ì´ìš©í•´ë´…ë‹ˆë‹¤.
 
 
-	//2. ´ÙÀ½ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â printRank¸¦ ±¸ÇöÇÏ¼¼¿ä.
+	//2. ë‹¤ìŒ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” printRankë¥¼ êµ¬í˜„í•˜ì„¸ìš”.
 	int rank = 0;
-	printf("µî¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+	printf("ë“±ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
 	scanf_s("%d", &rank);
 	PrintRank(rank);
 
-	//3. ´ÙÀ½ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â average¸¦ ±¸ÇöÇÏ¼¼¿ä.
+	//3. ë‹¤ìŒ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” averageë¥¼ êµ¬í˜„í•˜ì„¸ìš”.
 	int score = 0;
-	printf("3, 100, 95, 90ÀÇ Æò±ÕÀº\n");
+	printf("3, 100, 95, 90ì˜ í‰ê· ì€\n");
 	float avg1 = average(3, 100, 95, 90); //95
 	printf("%.2f\n", avg1);
-	printf("4, 100, 95, 90, 80ÀÇ Æò±ÕÀº\n");
+	printf("4, 100, 95, 90, 80ì˜ í‰ê· ì€\n");
 	float avg2 = average(4, 100, 95, 90, 80); //91.25
 	printf("%.2f\n", avg2);
-	//ÈùÆ®) printf("%.2f, value);¸¦ È°¿ëÇÏ¸é ¼Ò¼öÁ¡ 2ÀÚ¸®±îÁö Ãâ·Â °¡´É
+	//íŒíŠ¸) printf("%.2f, value);ë¥¼ í™œìš©í•˜ë©´ ì†Œìˆ˜ì  2ìë¦¬ê¹Œì§€ ì¶œë ¥ ê°€ëŠ¥
 
-	//4. ´ÙÀ½ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â isOdd¸¦ ±¸ÇöÇÏ¼¼¿ä.
+	//4. ë‹¤ìŒ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” isOddë¥¼ êµ¬í˜„í•˜ì„¸ìš”.
 	isOdd(3); //"YES"
 	isOdd(4); //"NO"
 	isOdd(5); //"YES"
 
-	//5. ´ÙÀ½ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â getPrimeÀ» ±¸ÇöÇÏ¼¼¿ä.
+	//5. ë‹¤ìŒ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” getPrimeì„ êµ¬í˜„í•˜ì„¸ìš”.
 	int i, num, count = 0;
-	printf("Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À:");	
+	printf("ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤:");	
 	scanf_s("%d", &num);
 	for (i = 2; i <= num; i++)
 	{
 		if (num % i == 0) count++;
 	}
 	if (count == 1)
-		printf("¼Ò¼öÀÔ´Ï´Ù.");
+		printf("ì†Œìˆ˜ì…ë‹ˆë‹¤.");
 	else
-		printf("¼Ò¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+		printf("ì†Œìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 
 	return 0;
 }
